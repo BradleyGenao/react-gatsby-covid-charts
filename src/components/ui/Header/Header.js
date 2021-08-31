@@ -60,7 +60,7 @@ const Bars = styled(ImStatsBars)`
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -20px;
+  margin-right: 0;
 
   @media screen and (max-width: 768px) {
     display: none;

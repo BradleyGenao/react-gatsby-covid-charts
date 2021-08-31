@@ -3,7 +3,7 @@ module.exports = {
     title: `Covid Data Tracker`,
     description: `Website that displays covid 19 data`,
     author: `Bradley Genao`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://genao.io`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -32,13 +32,10 @@ module.exports = {
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-alias-imports`,
+      resolve: "gatsby-source-custom-api",
       options: {
-        aliases: {
-          styles: `src/styles`,
-          config: `config/`,
-          "@utils": "src/utils/",
-        },
+        url: "https://covid19.mathdro.id/api",
+
       },
     },
   ],
