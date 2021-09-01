@@ -1,45 +1,47 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import Marquee from "react-fast-marquee"
 
-const Cards = () => {
+const Cards = ({confirmed, deaths, lastUpdate}) => {
   function separator(numb) {
     var str = numb.toString().split(".")
     str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     return str.join(".")
   }
 
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      customApi {
-        confirmed {
-          value
-        }
-        deaths {
-          value
-        }
-        lastUpdate(formatString: "MMMM DD, YYYY")
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query HeaderQuery {
+  //     customApi {
+  //       confirmed {
+  //         value
+  //       }
+  //       deaths {
+  //         value
+  //       }
+  //       lastUpdate(formatString: "MMMM DD, YYYY")
+  //     }
+  //   }
+  // `)
 
   return (
     <CardsContainer>
       <ContentWrapper>
         <Column>
-          <Data>
+          <Card>
             <h3>Confirmed Cases</h3>
-            <h5>Total: {separator(data.customApi.confirmed.value)}</h5>
-            <h5>Last Updated on {data.customApi.lastUpdate}</h5>
-          </Data>
+            <h5>Total: {separator(confirmed)}</h5>
+          </Card>
         </Column>
         <Column>
-          <Data>
-            <h3>Confirmed Cases</h3>
-            <h5>Total: {separator(data.customApi.deaths.value)}</h5>
-            <h5>Last Updated on {data.customApi.lastUpdate}</h5>
-          </Data>
+          <Card>
+            <h3>Confirmed Deaths</h3>
+            <h5>Total: {separator(deaths)}</h5>
+          </Card>
         </Column>
+        <Marquee>
+          <h5>Last Updated on {lastUpdate}</h5>
+        </Marquee>
       </ContentWrapper>
     </CardsContainer>
   )
@@ -52,6 +54,7 @@ const CardsContainer = styled.div`
   background: #fcfcfc;
   color: #000;
   padding: 5rem calc((100vw - 1300px) / 2);
+  box-sizing: border-box;
 `
 
 const ContentWrapper = styled.div`
@@ -64,7 +67,9 @@ const ContentWrapper = styled.div`
   }
 `
 
-const Data = styled.div`
+const Card = styled.div`
+  opacity: 1;
+
   padding-top: 1rem;
   padding-right: 2rem;
 
@@ -72,6 +77,7 @@ const Data = styled.div`
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-style: italic;
+    border: 5px groove rgba(28, 110, 164, 0.8);
   }
 
   p {
@@ -82,6 +88,7 @@ const Data = styled.div`
 const Column = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
+
 
   @media screen and (max-width: 500px) {
     grid-template-columns: 1fr;

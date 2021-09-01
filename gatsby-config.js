@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: `Covid Data Tracker`,
@@ -35,8 +36,8 @@ module.exports = {
       resolve: "gatsby-source-custom-api",
       options: {
         url: "https://covid19.mathdro.id/api",
-
+        rootKey: "globalCovid",
       },
-    },
+    }
   ],
 }
