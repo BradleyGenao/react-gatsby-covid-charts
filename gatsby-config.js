@@ -37,7 +37,35 @@ module.exports = {
       options: {
         url: "https://covid19.mathdro.id/api",
         rootKey: "globalCovid",
+        schemas: {
+          confirmed: `
+          value: Int
+          detail: String
+          `,
+
+          recovered: `
+          value: Int
+          detail: String
+          `,
+          deaths: `
+          value: Int
+          detail: String
+          `,
+          dailySummary: `value: String`,
+          dailyTimeSeries: `
+          pattern: String
+          example: String
+          `,
+          image: `url: String`,
+          source: `url: String`,
+          countries: `url: String`,
+          countryDetail: `
+          pattern: String
+          example: String
+          `,
+          lastUpdate: `date: Date`,
+        },
       },
-    }
+    },
   ],
 }

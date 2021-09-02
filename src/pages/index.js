@@ -1,8 +1,9 @@
 import * as React from "react"
-import { graphql, page } from 'gatsby'
+import { graphql,} from "gatsby"
 import Layout from "../components/layout"
-import { Hero, Cards } from "../components"
+import { Hero, Cards, Stats } from "../components"
 import Seo from "../components/seo"
+
 
 const IndexPage = ({ data }) => {
   return (
@@ -10,19 +11,23 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
 
       <Hero />
-      <Cards confirmed={data.globalCovid.confirmed.value} deaths={data.globalCovid.deaths.value} lastUpdate={data.globalCovid.lastUpdate} />
+
+      <Cards
+        confirmed={data.globalCovid.confirmed.value}
+        deaths={data.globalCovid.deaths.value}
+        lastUpdate={data.globalCovid.lastUpdate}
+      />
+      <Stats/>
     </Layout>
   )
 }
 
 export default IndexPage
 
-
-
 export const pageQuery = graphql`
   query MyQuery {
     globalCovid {
-      lastUpdate(locale: "")
+      lastUpdate(formatString: "MMMM DD, YYYY")
       confirmed {
         value
       }
@@ -32,3 +37,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+
