@@ -32,13 +32,6 @@ module.exports = {
     },
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: "gatsby-source-custom-api",
-      options: {
-        url: "https://covid19.mathdro.id/api",
-        rootKey: "globalCovid",
-        
-      },
-    },
+
   ],
 }

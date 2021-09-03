@@ -1,15 +1,12 @@
 import * as React from "react"
-import { graphql,} from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Hero, Cards, Stats } from "../components"
 import Seo from "../components/seo"
 
-
 const IndexPage = ({ data }) => {
-
   const dailyDates = data.covidDaily.data.map(({ reportDate }) => reportDate)
-
-
+console.log(dailyDates);
   return (
     <Layout>
       <Seo title="Home" />
@@ -17,58 +14,39 @@ const IndexPage = ({ data }) => {
       <Hero />
 
       <Cards
-        confirmed={data.globalCovid.confirmed.value}
-        deaths={data.globalCovid.deaths.value}
-        lastUpdate={data.globalCovid.lastUpdate}
+        confirmed={data.covidGlobal.confirmed.value}
+        deaths={data.covidGlobal.deaths.value}
+        lastUpdate={data.covidGlobal.lastUpdate}
       />
       <Stats />
-
     </Layout>
   )
 }
 
 export default IndexPage
 
-
 export const homePageQuery = graphql`
   query MyQuery {
     covidDaily {
       data {
         reportDate
-        deltaConfirmed
-        active
         confirmed {
           total
         }
         deaths {
           total
         }
+        active
       }
     }
-    globalCovid {
-      confirmed {
+    covidGlobal {
+      lastUpdate
+      deaths {
         value
       }
-      lastUpdate(formatString: "MMMM DD, YYYY")
-      deaths {
+      confirmed {
         value
       }
     }
   }
 `
-
-// export const pageQuery = graphql`
-//   query MyQuery {
-//     globalCovid {
-//       lastUpdate(formatString: "MMMM DD, YYYY")
-//       confirmed {
-//         value
-//       }
-//       deaths {
-//         value
-//       }
-//     }
-//   }
-// `
-
-
