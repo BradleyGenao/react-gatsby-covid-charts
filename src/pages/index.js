@@ -7,8 +7,8 @@ import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
 
-  const dailyDates = data.coviddaily.data.map(({ reportDate }) => reportDate)
-  
+  const dailyDates = data.covidDaily.data.map(({ reportDate }) => reportDate)
+
 
   return (
     <Layout>
@@ -32,7 +32,7 @@ export default IndexPage
 
 export const homePageQuery = graphql`
   query MyQuery {
-    coviddaily {
+    covidDaily {
       data {
         reportDate
         deltaConfirmed

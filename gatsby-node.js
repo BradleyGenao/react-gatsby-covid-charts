@@ -32,7 +32,7 @@ exports.sourceNodes = async ({
 
     id: createNodeId(data[0].reportDate),
     internal: {
-      type: "coviddaily",
+      type: "covidDaily",
       contentDigest: createContentDigest(data),
     },
   })
