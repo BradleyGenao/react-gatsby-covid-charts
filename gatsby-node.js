@@ -1,5 +1,5 @@
 const axios = require("axios")
-const {fetchDailyCovidData, fetchGlobalCovidData, fetchNasaData} = require("./utils/fetchApis")
+const { fetchGlobalCovidData, fetchNasaData, fetchCountriesDeath } = require("./utils/fetchApi")
 
 exports.sourceNodes = async ({
   actions,
@@ -7,8 +7,8 @@ exports.sourceNodes = async ({
   createContentDigest,
 }) => {
   fetchNasaData(actions, createNodeId, createContentDigest)
-  //fetchDailyCovidData(actions, createNodeId, createContentDigest)
   fetchGlobalCovidData(actions, createNodeId, createContentDigest)
+  fetchCountriesDeath(actions, createNodeId, createContentDigest)
   const { data } = await axios.get(`https://covid19.mathdro.id/api/daily`)
 
   actions.createNode({

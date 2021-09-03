@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
   const dailyDates = data.covidDaily.data.map(({ reportDate }) => reportDate)
-console.log(dailyDates);
+
   return (
     <Layout>
       <Seo title="Home" />
@@ -40,7 +40,7 @@ export const homePageQuery = graphql`
       }
     }
     covidGlobal {
-      lastUpdate
+      lastUpdate(formatString: "MMMM DD, YYYY")
       deaths {
         value
       }
