@@ -6,6 +6,10 @@ import Seo from "../components/seo"
 
 
 const IndexPage = ({ data }) => {
+
+  const dailyDates = data.coviddaily.data.map(({ reportDate }) => reportDate)
+  
+
   return (
     <Layout>
       <Seo title="Home" />
@@ -17,25 +21,54 @@ const IndexPage = ({ data }) => {
         deaths={data.globalCovid.deaths.value}
         lastUpdate={data.globalCovid.lastUpdate}
       />
-      <Stats/>
+      <Stats />
+
     </Layout>
   )
 }
 
 export default IndexPage
 
-export const pageQuery = graphql`
+
+export const homePageQuery = graphql`
   query MyQuery {
+    coviddaily {
+      data {
+        reportDate
+        deltaConfirmed
+        active
+        confirmed {
+          total
+        }
+        deaths {
+          total
+        }
+      }
+    }
     globalCovid {
-      lastUpdate(formatString: "MMMM DD, YYYY")
       confirmed {
         value
       }
+      lastUpdate(formatString: "MMMM DD, YYYY")
       deaths {
         value
       }
     }
   }
 `
+
+// export const pageQuery = graphql`
+//   query MyQuery {
+//     globalCovid {
+//       lastUpdate(formatString: "MMMM DD, YYYY")
+//       confirmed {
+//         value
+//       }
+//       deaths {
+//         value
+//       }
+//     }
+//   }
+// `
 
 

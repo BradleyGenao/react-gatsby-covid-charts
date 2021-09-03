@@ -5,10 +5,12 @@
   "version": "0.1.0",
   "author": "bradley Genao <bradley@genao.io>",
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.12.1",
     "gatsby-alias-imports": "^1.0.6",
     "gatsby-plugin-gatsby-cloud": "^2.11.0",
+    "gatsby-plugin-generate-types": "^0.1.0",
     "gatsby-plugin-image": "^1.12.0",
     "gatsby-plugin-manifest": "^3.12.0",
     "gatsby-plugin-offline": "^4.12.0",
