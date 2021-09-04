@@ -47,4 +47,7 @@ async function fetchCountriesDeath(actions, createNodeId, createContentDigest) {
   })
 }
 
-module.exports = { fetchGlobalCovidData, fetchNasaData, fetchCountriesDeath }
+module.exports = {
+  fetchGlobalCovidData,
+  fetchCountriesDeath,
+}

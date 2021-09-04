@@ -3,20 +3,16 @@ import { RiVirusFill } from "react-icons/ri"
 import { GiTombstone } from "react-icons/gi"
 import styled from "styled-components"
 import Marquee from "react-fast-marquee"
-import Video from '../../assets/videos/card-bg.mp4'
+import Video from "../../assets/videos/card-bg.mp4"
+import { numCommaSeparator } from '../../../utils/helperFunctions'
 
 const Cards = ({ confirmed, deaths, lastUpdate }) => {
-  function separator(numb) {
-    var str = numb.toString().split(".")
-    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    return str.join(".")
-  }
+
 
   return (
     <>
       <CardsContainer>
         <CardHeading>
-
           <CardBg>
             <VideoBg
               src={Video}
@@ -39,7 +35,7 @@ const Cards = ({ confirmed, deaths, lastUpdate }) => {
                 </span>
                 Cases
               </h3>
-              <h5>{separator(confirmed)}</h5>
+              <h5>{numCommaSeparator(confirmed)}</h5>
             </CardCases>
           </Column>
           <Column>
@@ -50,7 +46,7 @@ const Cards = ({ confirmed, deaths, lastUpdate }) => {
                   <GiTombstone color="#ff0303" />
                 </span>
               </h3>
-              <h5>{separator(deaths)}</h5>
+              <h5>{numCommaSeparator(deaths)}</h5>
             </CardDeaths>
           </Column>
         </ContentWrapper>
@@ -69,7 +65,6 @@ const UpdateMarquee = styled(Marquee)`
     font-size: 11px;
     padding-top: 0.3rem;
     background-color: transparent;
-
   }
 `
 
@@ -94,7 +89,6 @@ const CardHeading = styled.div`
 `
 
 const CardHeadingCases = styled.span`
-
   font-size: clamp(1.2rem, 5vw, 3rem);
   letter-spacing: -0.6px;
   word-spacing: 2px;
@@ -111,7 +105,6 @@ const CardsContainer = styled.div`
   background: black;
   color: #000;
   padding: 5rem calc((100vw - 1300px) / 2);
-
 `
 
 const ContentWrapper = styled.div`
@@ -190,12 +183,9 @@ const Column = styled.div`
   }
 `
 const CardBg = styled.div`
-
   left: 0;
   right: 0;
   width: 100%;
   height: 24%;
   overflow: hidden;
-
-
 `
