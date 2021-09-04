@@ -1,5 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import Marquee from "react-fast-marquee"
+import { RiVirusFill } from "react-icons/ri"
+import { GiTombstone } from "react-icons/gi"
 import Video from "../../assets/videos/card-bg.mp4"
 
 const GlobalCard = () => {
@@ -14,10 +17,39 @@ const GlobalCard = () => {
             </CardHeading>
 
             <CardDataContainer>
-              <h3>Cases</h3>
-              <p>100,000,000,000</p>
-              <h3>Deaths </h3>
-              <p>100,000</p>
+              <Data>
+                <h3 style={{ color: "blue" }}>Realtime Covid-19 Cases</h3>
+
+                <span>
+                  <RiVirusFill color="blue" size="27px" />
+                  <p style={{ paddingLeft: "1rem" }}>100,000,000,000</p>
+                </span>
+                <Marquee
+                  style={{
+                    paddingTop: "8rem",
+                    width: "355px",
+                    overflow: "hidden",
+
+
+
+                  }}
+                  pauseOnHover="true"
+                  gradient="false"
+                  gradientWidth="50"
+                >
+                  <h5 style={{ fontSize: 10 }}>
+                    Totals last updated onAugust 18th 2004
+                  </h5>
+                </Marquee>
+              </Data>
+              <Data>
+                <h3 style={{ color: "red" }}>Realtime Covid-19 Cases</h3>
+
+                <span>
+                  <GiTombstone color="red" size="27px" />
+                  <p style={{ paddingLeft: "1rem" }}>100,000,000,000</p>
+                </span>
+              </Data>
             </CardDataContainer>
           </CardItem>
         </CardContent>
@@ -31,23 +63,68 @@ export default GlobalCard
 const CardContainer = styled.div`
   position: relative;
   display: flex;
+  
+
+  @media screen and (max-width: 500px) {
+    width: 500px;
+    height: 500px;
+  }
 `
-
-
-
 
 const CardDataContainer = styled.div`
   color: white;
   margin: 15px;
+  padding-top: 1rem;
+
+  justify-content: space-between;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @media screen and (max-width: 500px) {
+    width: 500px;
+    height: 500px;
+  }
 `
 
+const Data = styled.div`
+  width: 410px;
+  padding-left: 0.2rem;
+  height: 390px;
+
+  @media screen and (max-width: 750px) {
+    width: 400;
+    height: 800;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    padding-bottom: 0.4rem;
+  }
+  p {
+    color: white;
+    font-size: clamp(1.5rem, 6vw, 1rem);
+    padding-right: 1rem;
+    letter-spacing: 2px;
+    flex-grow: 4;
+    padding-left: 0.9rem;
+  }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
 
 const CardBg = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  margin-top: -75px;
 `
 
 const VideoBg = styled.video`
@@ -82,3 +159,5 @@ const CardHeading = styled.div`
 `
 
 const CardContent = styled.div``
+
+

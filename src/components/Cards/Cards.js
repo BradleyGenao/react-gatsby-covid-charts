@@ -31,7 +31,7 @@ const Cards = ({ confirmed, deaths, lastUpdate }) => {
             <CardCases>
               <h3>
                 <span>
-                  <RiVirusFill color="rgb(0, 68, 137)" />
+                  <RiVirusFill color="rgb(0, 68, 137)" size="500px"/>
                 </span>
                 Cases
               </h3>
@@ -130,6 +130,8 @@ const CardCases = styled.div`
     font-style: italic;
     border: 5px outset rgb(0, 68, 137);
     color: white;
+    justify-content: space-between;
+
   }
 
   h5 {
@@ -139,7 +141,7 @@ const CardCases = styled.div`
   span {
     padding-top: 0.2rem;
     float: right;
-    padding-right: 0.5rem;
+
   }
 
   p {
