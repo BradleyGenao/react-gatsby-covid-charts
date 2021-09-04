@@ -4,8 +4,9 @@ import Marquee from "react-fast-marquee"
 import { RiVirusFill } from "react-icons/ri"
 import { GiTombstone } from "react-icons/gi"
 import Video from "../../assets/videos/card-bg.mp4"
+import { numCommaSeparator } from "../../../utils/helperFunctions"
 
-const GlobalCard = () => {
+const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
   return (
     <CardContainer>
       <CardBg>
@@ -22,32 +23,33 @@ const GlobalCard = () => {
 
                 <span>
                   <RiVirusFill color="blue" size="27px" />
-                  <p style={{ paddingLeft: "1rem" }}>100,000,000,000</p>
+                  <p style={{ paddingLeft: "1rem" }}>
+                    {numCommaSeparator(confirmed)}
+                  </p>
                 </span>
                 <Marquee
                   style={{
                     paddingTop: "8rem",
                     width: "355px",
                     overflow: "hidden",
-
-
-
                   }}
                   pauseOnHover="true"
                   gradient="false"
                   gradientWidth="50"
                 >
                   <h5 style={{ fontSize: 10 }}>
-                    Totals last updated onAugust 18th 2004
+                    Totals last updated on {lastUpdate}
                   </h5>
                 </Marquee>
               </Data>
               <Data>
-                <h3 style={{ color: "red" }}>Realtime Covid-19 Cases</h3>
+                <h3 style={{ color: "red" }}>Realtime Covid-19 Deaths</h3>
 
                 <span>
                   <GiTombstone color="red" size="27px" />
-                  <p style={{ paddingLeft: "1rem" }}>100,000,000,000</p>
+                  <p style={{ paddingLeft: "1rem" }}>
+                    {numCommaSeparator(deaths)}
+                  </p>
                 </span>
               </Data>
             </CardDataContainer>
@@ -63,11 +65,10 @@ export default GlobalCard
 const CardContainer = styled.div`
   position: relative;
   display: flex;
-  
 
-  @media screen and (max-width: 500px) {
-    width: 500px;
-    height: 500px;
+  @media screen and (max-width: 550px) {
+    width: 550px;
+    height: 550px;
   }
 `
 
@@ -159,5 +160,3 @@ const CardHeading = styled.div`
 `
 
 const CardContent = styled.div``
-
-

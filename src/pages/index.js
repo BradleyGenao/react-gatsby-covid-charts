@@ -12,12 +12,11 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
 
       <Hero />
-      <GlobalCard/>
-      {/* <Cards
+      <GlobalCard
         confirmed={data.covidGlobal.confirmed.value}
         deaths={data.covidGlobal.deaths.value}
         lastUpdate={data.covidGlobal.lastUpdate}
-      /> */}
+      />
       <Stats />
     </Layout>
   )
