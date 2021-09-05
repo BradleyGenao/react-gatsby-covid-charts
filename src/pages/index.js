@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Hero, GlobalCard, DailyStats } from "../components"
+import { Hero, GlobalStats, DailyStats } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
 
       <Hero />
-      <GlobalCard
+      <GlobalStats
         confirmed={data.covidGlobal.confirmed.value}
         deaths={data.covidGlobal.deaths.value}
         lastUpdate={data.covidGlobal.lastUpdate}

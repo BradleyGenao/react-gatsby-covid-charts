@@ -66,6 +66,7 @@ const CardContainer = styled.div`
   position: relative;
   display: flex;
   height: 100vh;
+  
 
   @media screen and (max-width: 550px) {
     width: 550px;
