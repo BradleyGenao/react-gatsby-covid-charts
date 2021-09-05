@@ -1,10 +1,7 @@
 const axios = require("axios")
-
 const {
   fetchGlobalCovidData,
-
   fetchCountriesConfirmed,
-
   fetchCountriesDeath,
 } = require("./utils/fetchApi")
 

@@ -1,10 +1,13 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
-import { Hero, Stats, GlobalCard } from "../components"
+import { Hero, Stats, GlobalCard, DailyStats } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
+
+
+
   
   return (
     <Layout>
@@ -17,23 +20,15 @@ const IndexPage = ({ data }) => {
         lastUpdate={data.covidGlobal.lastUpdate}
       />
       <Stats />
+      <DailyStats/>
     </Layout>
   )
 }
 
-export default IndexPage
 
 export const homePageQuery = graphql`
-  query MyQuery {
-    covidGlobal {
-      confirmed {
-        value
-      }
-      deaths {
-        value
-      }
-      lastUpdate(formatString: "MMMM DD, YYYY hh:mm A")
-    }
+  query MainQuery {
+
     covidDaily {
       data {
         reportDate
@@ -76,3 +71,7 @@ export const homePageQuery = graphql`
     }
   }
 `
+
+export default IndexPage
+
+

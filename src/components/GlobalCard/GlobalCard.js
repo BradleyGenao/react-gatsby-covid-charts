@@ -38,7 +38,7 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
                   gradientWidth="50"
                 >
                   <h5 style={{ fontSize: 10 }}>
-                    Totals last updated on {lastUpdate}
+                    Last updated on {lastUpdate}
                   </h5>
                 </Marquee>
               </Data>
