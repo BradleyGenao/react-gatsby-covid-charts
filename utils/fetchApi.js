@@ -1,20 +1,5 @@
 const axios = require("axios")
 
-async function fetchNasaData(actions, createNodeId, createContentDigest) {
-  const { data } = await axios.get(
-    `https://api.nasa.gov/planetary/apod?api_key=cwSN6m8NimhARv7ZFU6OpoStUcmyZw8bbKJz3QPw`
-  )
-
-  actions.createNode({
-    ...data,
-    id: createNodeId(data.date),
-    internal: {
-      type: "apod",
-      contentDigest: createContentDigest(data),
-    },
-  })
-}
-
 async function fetchGlobalCovidData(
   actions,
   createNodeId,
@@ -47,7 +32,27 @@ async function fetchCountriesDeath(actions, createNodeId, createContentDigest) {
   })
 }
 
+async function fetchCountriesConfirmed(
+  actions,
+  createNodeId,
+  createContentDigest
+) {
+  const { data } = await axios.get(`https://covid19.mathdro.id/api/confirmed`)
+
+  actions.createNode({
+    data,
+
+    id: createNodeId(data[0].uid),
+    internal: {
+      type: "countriesConfirmed",
+      contentDigest: createContentDigest(data),
+    },
+  })
+}
+
 module.exports = {
   fetchGlobalCovidData,
   fetchCountriesDeath,
+  fetchCountriesConfirmed,
+  fetchCountriesConfirmed,
 }

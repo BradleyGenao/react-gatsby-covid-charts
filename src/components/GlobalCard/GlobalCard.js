@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee"
 import { RiVirusFill } from "react-icons/ri"
 import { GiTombstone } from "react-icons/gi"
 import Video from "../../assets/videos/card-bg.mp4"
-import { numCommaSeparator } from "../../../utils/helperFunctions"
+import { numCommaSeparator } from "../utils/helperFunctions"
 
 const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
   return (
@@ -23,7 +23,7 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
 
                 <span>
                   <RiVirusFill color="blue" size="27px" />
-                  <p style={{ paddingLeft: "1rem" }}>
+                  <p style={{ paddingLeft: "1rem", fontStyle: 'italic' }}>
                     {numCommaSeparator(confirmed)}
                   </p>
                 </span>
@@ -47,7 +47,7 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
 
                 <span>
                   <GiTombstone color="red" size="27px" />
-                  <p style={{ paddingLeft: "1rem" }}>
+                  <p style={{ paddingLeft: "1rem", fontStyle: 'italic' }}>
                     {numCommaSeparator(deaths)}
                   </p>
                 </span>
@@ -65,6 +65,7 @@ export default GlobalCard
 const CardContainer = styled.div`
   position: relative;
   display: flex;
+  height: 100vh;
 
   @media screen and (max-width: 550px) {
     width: 550px;

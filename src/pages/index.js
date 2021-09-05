@@ -5,8 +5,7 @@ import { Hero, Stats, GlobalCard } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  //const dailyDates = data.covidDaily.data.map(({ reportDate }) => reportDate)
-
+  
   return (
     <Layout>
       <Seo title="Home" />
@@ -26,6 +25,15 @@ export default IndexPage
 
 export const homePageQuery = graphql`
   query MyQuery {
+    covidGlobal {
+      confirmed {
+        value
+      }
+      deaths {
+        value
+      }
+      lastUpdate(formatString: "MMMM DD, YYYY hh:mm A")
+    }
     covidDaily {
       data {
         reportDate
@@ -38,13 +46,32 @@ export const homePageQuery = graphql`
         active
       }
     }
-    covidGlobal {
-      lastUpdate(formatString: "MMMM DD, YYYY")
-      deaths {
-        value
+    countiresJson {
+      name
+      code
+    }
+    countriesConfirmed {
+      data {
+        uid
+        confirmed
+        deaths
+        iso2
+        lastUpdate
+        lat
+        long
+        countryRegion
       }
-      confirmed {
-        value
+    }
+    countriesDeath {
+      data {
+        uid
+        confirmed
+        deaths
+        iso2
+        lastUpdate
+        lat
+        long
+        countryRegion
       }
     }
   }
