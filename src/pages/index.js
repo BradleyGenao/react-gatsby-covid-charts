@@ -1,14 +1,10 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Hero, Stats, GlobalCard, DailyStats } from "../components"
+import { Hero, GlobalCard, DailyStats } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
-
-
-
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -19,8 +15,8 @@ const IndexPage = ({ data }) => {
         deaths={data.covidGlobal.deaths.value}
         lastUpdate={data.covidGlobal.lastUpdate}
       />
-      <Stats />
-      <DailyStats/>
+
+      <DailyStats />
     </Layout>
   )
 }
@@ -65,5 +61,3 @@ export const homePageQuery = graphql`
 `
 
 export default IndexPage
-
-
