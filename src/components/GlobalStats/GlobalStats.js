@@ -19,10 +19,10 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
 
             <CardDataContainer>
               <Data>
-                <h3 style={{ color: "blue" }}>Realtime Covid-19 Cases</h3>
+                <h3 style={{ color: "#73a9c2" }}>Realtime Covid-19 Cases</h3>
 
                 <span>
-                  <RiVirusFill color="blue" size="27px" />
+                  <RiVirusFill color="#73a9c2" size="27px" />
                   <p style={{ paddingLeft: "1rem", fontStyle: "italic" }}>
                     {numCommaSeparator(confirmed)}
                   </p>
@@ -41,10 +41,10 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
                 </Marquee>
               </Data>
               <Data>
-                <h3 style={{ color: "red" }}>Realtime Covid-19 Deaths</h3>
+                <h3 style={{ color: "#db654b" }}>Realtime Covid-19 Deaths</h3>
 
                 <span>
-                  <GiTombstone color="red" size="27px" />
+                  <GiTombstone color="#db654b" size="27px" />
                   <p style={{ paddingLeft: "1rem", fontStyle: "italic" }}>
                     {numCommaSeparator(deaths)}
                   </p>
