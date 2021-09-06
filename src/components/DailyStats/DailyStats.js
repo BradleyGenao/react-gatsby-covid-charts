@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const DailyStats = () => {
+
   return (
     <Container>
       <Heading>Daily Stats</Heading>
@@ -30,6 +31,9 @@ const DailyStats = () => {
 }
 
 export default DailyStats
+
+
+
 
 const Container = styled.div`
   height: 60vh;

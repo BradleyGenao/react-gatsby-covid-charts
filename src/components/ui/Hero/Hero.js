@@ -12,8 +12,8 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroItems>
-          <HeroH1>Covid Data Tracker</HeroH1>
-          <HeroP>Realtime Covid Data visualized</HeroP>
+          <HeroH1>Covid-19 Pandemic</HeroH1>
+          <HeroP>Realtime Data Visualized </HeroP>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
@@ -23,11 +23,11 @@ const Hero = () => {
 export default Hero
 
 const HeroContainer = styled.div`
-  background: #0c0c0c;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
   padding: 0 1rem;
   position: relative;
   margin-top: -80px;
@@ -63,7 +63,7 @@ const HeroBg = styled.div`
 
 const VideoBg = styled.video`
   width: 100%;
-  height: 80%;
+  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 `

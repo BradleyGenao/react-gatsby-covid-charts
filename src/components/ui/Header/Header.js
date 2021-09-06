@@ -40,6 +40,7 @@ padding: 0 1rem;
 height: 100%;
 cursor: pointer;
 
+
 `
 
 const Bars = styled(ImStatsBars)`
