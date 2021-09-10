@@ -1,11 +1,15 @@
 import React from "react"
 import styled from "styled-components"
+import { Line } from "react-chartjs-2"
 
-const DailyStats = () => {
+
+const DailyStats = (dailyData) => {
+
+
 
   return (
     <Container>
-      <Heading>Daily Stats</Heading>
+      <Heading>Daily Statistics</Heading>
 
       <Wrapper>
         <CountriesContainer>
@@ -19,10 +23,61 @@ const DailyStats = () => {
         </CountriesContainer>
         <GlobalContainer>
           <GlobalHeading>
-            <h1>Global Charts</h1>
+            <h1>Global</h1>
           </GlobalHeading>
           <ChartContainer>
-            <h1>Chart Data</h1>
+            <Line
+              options={{
+                responsive: true,
+                scales: {
+                  y: {
+                    // defining min and max so hiding the dataset does not change scale range
+
+
+                  },
+                },
+              }}
+              data={{
+                labels: dailyData.data.map(({ reportDate }) => reportDate),
+
+                datasets: [
+                  {
+                    data: dailyData.data.map(
+                      ({ totalConfirmed }) => totalConfirmed
+                    ),
+                    label: "Infected",
+
+                    backgroundColor: "#ACDF87",
+                    borderColor: [
+                      "#1E5631",
+                      "#A4DE02",
+                      "#76BA1B",
+                      "#4C9A2A",
+                      "#ACDF87",
+                      "#68BB59",
+                    ],
+                    borderWidth: 1,
+                    tension: 0.3,
+                  },
+                  {
+                    data: dailyData.data.map(({ deaths }) => deaths.total),
+                    label: "Deaths",
+                    borderColor: "#771318",
+                    backgroundColor: [
+                      "#A31116",
+                      "#8F171B",
+                      "#831419",
+                      "#771318",
+                      "#E00029",
+                      "#BC0017",
+                      "#9B000A",
+                    ],
+                    fill: true,
+                    borderWidth: 1,
+                  },
+                ],
+              }}
+            />
           </ChartContainer>
         </GlobalContainer>
       </Wrapper>
@@ -36,12 +91,12 @@ export default DailyStats
 
 
 const Container = styled.div`
-  height: 60vh;
+  height: 85vh;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding: 3rem calc((100vw - 1300px) / 2);
+  justify-content: space-around;
+
   width: 100%;
   background-color: black;
 `
@@ -50,7 +105,7 @@ const Heading = styled.h1`
   text-align: center;
 
   font-size: clamp(1.5rem, 5vw, 2rem);
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 `
 
 const Wrapper = styled.div`
@@ -64,8 +119,25 @@ const CountriesList = styled.div``
 
 const CountriesChart = styled.div``
 
-const GlobalContainer = styled.div``
+const GlobalContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 35vw;
+  background-color: whitesmoke;
+  border: 4px solid rgba(0, 0, 0, 0.49);
+`
 
-const GlobalHeading = styled.div``
+const GlobalHeading = styled.div`
+  background: #acdf87;
+  background: -moz-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
+  background: -webkit-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
+  background: linear-gradient(to right, #acdf87 0%, #6d1d05 100%);
+  text-align: center;
+  padding: 2rem;
 
-const ChartContainer = styled.div``
+`
+const ChartContainer = styled.div`
+padding-top: 1.5rem;
+
+`
