@@ -40,11 +40,12 @@ padding: 0 1rem;
 height: 100%;
 cursor: pointer;
 
+
 `
 
 const Bars = styled(ImStatsBars)`
   display: none;
-  color: greenyellow;
+  color: #73a9c2;
 
   @media screen and (max-width: 768px) {
     display: block;

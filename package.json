@@ -29,6 +29,7 @@
     "react-fast-marquee": "^1.2.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
+    "react-picker": "^1.2.17",
     "react-redux": "^7.2.4",
     "redux": "^4.1.1",
     "styled-components": "^5.3.1"

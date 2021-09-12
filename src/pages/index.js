@@ -1,27 +1,27 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Hero, Stats, GlobalCard } from "../components"
+import { Hero, GlobalStats, DailyStats } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  
+  const dailyData = data.covidDaily.daily.map(day => day)
+
   return (
     <Layout>
       <Seo title="Home" />
 
       <Hero />
-      <GlobalCard
+      <GlobalStats
         confirmed={data.covidGlobal.confirmed.value}
         deaths={data.covidGlobal.deaths.value}
         lastUpdate={data.covidGlobal.lastUpdate}
       />
-      <Stats />
+
+      <DailyStats data={dailyData} />
     </Layout>
   )
 }
-
-export default IndexPage
 
 export const homePageQuery = graphql`
   query MyQuery {
@@ -35,44 +35,27 @@ export const homePageQuery = graphql`
       lastUpdate(formatString: "MMMM DD, YYYY hh:mm A")
     }
     covidDaily {
-      data {
-        reportDate
-        confirmed {
-          total
-        }
+      daily {
+        totalConfirmed
         deaths {
           total
         }
-        active
+        reportDate(formatString: "MMMM DD, YYYY hh:mm A")
       }
     }
-    countiresJson {
-      name
-      code
-    }
-    countriesConfirmed {
-      data {
-        uid
+    countries {
+      countries {
         confirmed
         deaths
-        iso2
+        countryRegion
         lastUpdate
         lat
         long
-        countryRegion
-      }
-    }
-    countriesDeath {
-      data {
-        uid
-        confirmed
-        deaths
+        provinceState
         iso2
-        lastUpdate
-        lat
-        long
-        countryRegion
       }
     }
   }
 `
+
+export default IndexPage

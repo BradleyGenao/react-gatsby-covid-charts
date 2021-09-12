@@ -1,30 +1,45 @@
 const axios = require("axios")
 
-const {
-  fetchGlobalCovidData,
-
-  fetchCountriesConfirmed,
-
-  fetchCountriesDeath,
-} = require("./utils/fetchApi")
-
 exports.sourceNodes = async ({
   actions,
   createNodeId,
   createContentDigest,
 }) => {
-  fetchGlobalCovidData(actions, createNodeId, createContentDigest)
-  fetchCountriesDeath(actions, createNodeId, createContentDigest)
-  fetchCountriesConfirmed(actions, createNodeId, createContentDigest)
-  const { data } = await axios.get(`https://covid19.mathdro.id/api/daily`)
+  const { data: daily } = await axios.get(
+    `https://covid19.mathdro.id/api/daily`
+  )
+  const { data: countries } = await axios.get(
+    `https://covid19.mathdro.id/api/confirmed`
+  )
+  const { data: global } = await axios.get(`https://covid19.mathdro.id/api`)
 
   actions.createNode({
-    data,
+    daily,
 
-    id: createNodeId(data[0].reportDate),
+    id: createNodeId(daily[0].reportDate),
     internal: {
       type: "covidDaily",
-      contentDigest: createContentDigest(data),
+      contentDigest: createContentDigest(daily),
+    },
+  })
+
+  actions.createNode({
+    countries,
+
+    id: createNodeId(countries[0].uid),
+    internal: {
+      type: "countries",
+      contentDigest: createContentDigest(countries),
+    },
+  })
+
+  actions.createNode({
+    ...global,
+
+    id: createNodeId(global.lastUpdate),
+    internal: {
+      type: "covidGlobal",
+      contentDigest: createContentDigest(global),
     },
   })
 }

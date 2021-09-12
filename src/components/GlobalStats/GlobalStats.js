@@ -19,11 +19,11 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
 
             <CardDataContainer>
               <Data>
-                <h3 style={{ color: "blue" }}>Realtime Covid-19 Cases</h3>
+                <h3 style={{ color: "#73a9c2" }}>Latest COVID-19 Cases</h3>
 
                 <span>
-                  <RiVirusFill color="blue" size="27px" />
-                  <p style={{ paddingLeft: "1rem", fontStyle: 'italic' }}>
+                  <RiVirusFill color="#73a9c2" size="27px" />
+                  <p style={{ paddingLeft: "1rem", fontStyle: "italic" }}>
                     {numCommaSeparator(confirmed)}
                   </p>
                 </span>
@@ -37,17 +37,14 @@ const GlobalCard = ({ confirmed, deaths, lastUpdate }) => {
                   gradient="false"
                   gradientWidth="50"
                 >
-                  <h5 style={{ fontSize: 10 }}>
-                    Totals last updated on {lastUpdate}
-                  </h5>
+                  <h5 style={{ fontSize: 10 }}>Last updated on {lastUpdate}</h5>
                 </Marquee>
               </Data>
               <Data>
-                <h3 style={{ color: "red" }}>Realtime Covid-19 Deaths</h3>
-
+                <h3 style={{ color: "#db654b" }}>Latest COVID-19 Deaths</h3>
                 <span>
-                  <GiTombstone color="red" size="27px" />
-                  <p style={{ paddingLeft: "1rem", fontStyle: 'italic' }}>
+                  <GiTombstone color="#db654b" size="27px" />
+                  <p style={{ paddingLeft: "1rem", fontStyle: "italic" }}>
                     {numCommaSeparator(deaths)}
                   </p>
                 </span>
@@ -77,9 +74,7 @@ const CardDataContainer = styled.div`
   color: white;
   margin: 15px;
   padding-top: 1rem;
-
   justify-content: space-between;
-
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -93,7 +88,7 @@ const CardDataContainer = styled.div`
 const Data = styled.div`
   width: 410px;
   padding-left: 0.2rem;
-  height: 390px;
+  height: 100%;
 
   @media screen and (max-width: 750px) {
     width: 400;
@@ -157,6 +152,7 @@ const CardHeading = styled.div`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    position: relative;
   }
 `
 
