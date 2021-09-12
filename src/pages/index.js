@@ -5,8 +5,7 @@ import { Hero, GlobalStats, DailyStats } from "../components"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
-
-  const dailyData = data.covidDaily.daily.map((day) => day)
+  const dailyData = data.covidDaily.daily.map(day => day)
 
   return (
     <Layout>
@@ -19,7 +18,7 @@ const IndexPage = ({ data }) => {
         lastUpdate={data.covidGlobal.lastUpdate}
       />
 
-      <DailyStats data={dailyData}  />
+      <DailyStats data={dailyData} />
     </Layout>
   )
 }
@@ -55,10 +54,6 @@ export const homePageQuery = graphql`
         provinceState
         iso2
       }
-    }
-    countiresListJson {
-      code
-      name
     }
   }
 `

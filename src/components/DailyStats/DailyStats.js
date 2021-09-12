@@ -1,6 +1,7 @@
-import React from "react"
+import React, {} from "react"
 import styled from "styled-components"
 import { Line } from "react-chartjs-2"
+import Bar from './CountryBarChart'
 
 
 const DailyStats = (dailyData) => {
@@ -14,16 +15,18 @@ const DailyStats = (dailyData) => {
       <Wrapper>
         <CountriesContainer>
           <CountriesList>
-            <h1>US</h1>
+            <h1>Country</h1>
           </CountriesList>
 
           <CountriesChart>
-            <h1>Countries Chart</h1>
+
+            <Bar/>
+
           </CountriesChart>
         </CountriesContainer>
         <GlobalContainer>
           <GlobalHeading>
-            <h1>Global</h1>
+            <h1>Globally</h1>
           </GlobalHeading>
           <ChartContainer>
             <Line
@@ -32,8 +35,6 @@ const DailyStats = (dailyData) => {
                 scales: {
                   y: {
                     // defining min and max so hiding the dataset does not change scale range
-
-
                   },
                 },
               }}
@@ -45,7 +46,7 @@ const DailyStats = (dailyData) => {
                     data: dailyData.data.map(
                       ({ totalConfirmed }) => totalConfirmed
                     ),
-                    label: "Infected",
+                    label: "Infections",
 
                     backgroundColor: "#ACDF87",
                     borderColor: [
@@ -87,9 +88,6 @@ const DailyStats = (dailyData) => {
 
 export default DailyStats
 
-
-
-
 const Container = styled.div`
   height: 85vh;
   color: white;
@@ -113,11 +111,28 @@ const Wrapper = styled.div`
   justify-content: space-around;
 `
 
-const CountriesContainer = styled.div``
+const CountriesContainer = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 35vw;
+  background-color: whitesmoke;
+  border: 4px solid black;
+`
 
-const CountriesList = styled.div``
+const CountriesList = styled.div`
+  background: #acdf87;
+  background: -moz-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
+  background: -webkit-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
+  background: linear-gradient(to right, #acdf87 0%, #6d1d05 100%);
+  text-align: center;
+  padding: 2rem;
+`
 
-const CountriesChart = styled.div``
+const CountriesChart = styled.div`
+color: black;
+
+`
 
 const GlobalContainer = styled.div`
   width: 50%;
@@ -125,7 +140,7 @@ const GlobalContainer = styled.div`
   flex-direction: column;
   height: 35vw;
   background-color: whitesmoke;
-  border: 4px solid rgba(0, 0, 0, 0.49);
+  border: 4px solid black;
 `
 
 const GlobalHeading = styled.div`
@@ -135,9 +150,7 @@ const GlobalHeading = styled.div`
   background: linear-gradient(to right, #acdf87 0%, #6d1d05 100%);
   text-align: center;
   padding: 2rem;
-
 `
 const ChartContainer = styled.div`
-padding-top: 1.5rem;
-
+  padding-top: 1.5rem;
 `
