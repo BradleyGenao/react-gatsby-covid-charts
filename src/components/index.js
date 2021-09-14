@@ -3,3 +3,4 @@ export { default as Hero } from './ui/Hero'
 export { default as Footer } from "./ui/Footer"
 export { default as GlobalStats } from './GlobalStats'
 export { default as DailyStats } from './DailyStats'
+export { default as About} from './About'

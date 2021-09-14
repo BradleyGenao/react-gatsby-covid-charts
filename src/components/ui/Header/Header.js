@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react"
 import { Link } from "gatsby"
-import { ImStatsBars} from 'react-icons/im'
+import { ImStatsBars } from "react-icons/im"
 import styled from "styled-components"
 
 const Header = () => {
   return (
     <div>
       <Nav>
-        <NavLink to="/">Covid Data Charts</NavLink>
+        <NavLink to="/">Home</NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to="/vaccine">Vaccine Data Charts</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">About Page</NavLink>
         </NavMenu>
       </Nav>
     </div>
@@ -19,7 +18,6 @@ const Header = () => {
 }
 
 export default Header
-
 
 const Nav = styled.nav`
   background: transparent;
@@ -32,15 +30,13 @@ const Nav = styled.nav`
 `
 
 const NavLink = styled(Link)`
-color: #fff;
-display: flex;
-align-items: center;
-text-decoration: none;
-padding: 0 1rem;
-height: 100%;
-cursor: pointer;
-
-
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
 `
 
 const Bars = styled(ImStatsBars)`

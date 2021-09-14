@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import Video from "../../../assets/videos/bg.mp4"
 
-
 const Hero = () => {
   return (
     <HeroContainer>
@@ -12,8 +11,8 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroItems>
-          <HeroH1>Covid-19 Pandemic</HeroH1>
-          <HeroP>Realtime Data Visualized </HeroP>
+          <HeroH1>COVID-19 Data Visualized</HeroH1>
+          <HeroP>Realtime Data Visualized with Gatsby </HeroP>
         </HeroItems>
       </HeroContent>
     </HeroContainer>
@@ -76,18 +75,17 @@ const HeroContent = styled.div`
 `
 
 const HeroItems = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-height: 100vh;
-max-height: 100%;
-padding: 0;
-color: #fff;
-line-height: 1.1;
-font-weight: bold;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  max-height: 100%;
+  padding: 0;
+  color: #fff;
+  line-height: 1.1;
+  font-weight: bold;
 `
 
 const HeroH1 = styled.h1`

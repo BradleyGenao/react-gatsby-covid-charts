@@ -6,12 +6,12 @@ import Bar from "./CountryBarChart"
 const DailyStats = dailyData => {
   return (
     <Container>
-      <Heading>Daily Statistics</Heading>
+      <Heading>Daily Numbers</Heading>
 
       <Wrapper>
         <CountriesContainer>
           <CountriesList>
-            <h1>Country</h1>
+            <h1>By Country</h1>
           </CountriesList>
 
           <CountriesChart>

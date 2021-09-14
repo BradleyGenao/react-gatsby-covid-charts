@@ -39,9 +39,9 @@ const FooterContainer = styled.div`
   padding: 2rem calc((100vw - 1100px) / 2);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  color: #000;
-  background: #fafafb;
-  height: 15vw;
+  color: white;
+  background: black;
+  height: 100%;
 `
 const FooterDesc = styled.div`
   padding: 0 2rem;
@@ -82,10 +82,10 @@ const FooterHref = styled.a`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
-  color: #3d3d4e;
+  color: whitesmoke;
 
   &:hover {
-    color: #f26a2e;
+    color: #73a9c2;
     transition: 0.3s ease-out;
   }
 `
@@ -94,10 +94,10 @@ const FooterLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 0.5rem;
   font-size: 14px;
-  color: #3d3d4e;
+  color: whitesmoke;
 
   &:hover {
-    color: #f26a2e;
+    color: #73a9c2;
     transition: 0.3s ease-out;
   }
 `
