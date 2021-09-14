@@ -1,13 +1,9 @@
-import React, {} from "react"
+import React from "react"
 import styled from "styled-components"
 import { Line } from "react-chartjs-2"
-import Bar from './CountryBarChart'
+import Bar from "./CountryBarChart"
 
-
-const DailyStats = (dailyData) => {
-
-
-
+const DailyStats = dailyData => {
   return (
     <Container>
       <Heading>Daily Statistics</Heading>
@@ -19,9 +15,7 @@ const DailyStats = (dailyData) => {
           </CountriesList>
 
           <CountriesChart>
-
-            <Bar/>
-
+            <Bar />
           </CountriesChart>
         </CountriesContainer>
         <GlobalContainer>
@@ -89,7 +83,6 @@ const DailyStats = (dailyData) => {
 export default DailyStats
 
 const Container = styled.div`
-  height: 85vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -108,46 +101,52 @@ const Heading = styled.h1`
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 868px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const CountriesContainer = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  height: 35vw;
+  height: 40vw;
   background-color: whitesmoke;
   border: 4px solid black;
 `
 
 const CountriesList = styled.div`
-  background: #acdf87;
-  background: -moz-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
-  background: -webkit-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
-  background: linear-gradient(to right, #acdf87 0%, #6d1d05 100%);
+  background: #73a9c2;
+  background: -moz-linear-gradient(left, #73a9c2 0%, #6d1d05 100%);
+  background: -webkit-linear-gradient(left, #73a9c2 0%, #6d1d05 100%);
+  background: linear-gradient(to right, #73a9c2 0%, #6d1d05 100%);
   text-align: center;
   padding: 2rem;
 `
 
 const CountriesChart = styled.div`
-color: black;
-
+  color: black;
 `
 
 const GlobalContainer = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  height: 35vw;
+  height: 40vw;
   background-color: whitesmoke;
   border: 4px solid black;
 `
 
 const GlobalHeading = styled.div`
-  background: #acdf87;
-  background: -moz-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
-  background: -webkit-linear-gradient(left, #acdf87 0%, #6d1d05 100%);
-  background: linear-gradient(to right, #acdf87 0%, #6d1d05 100%);
+  background: #73a9c2;
+  background: -moz-linear-gradient(left, #73a9c2 0%, #6d1d05 100%);
+  background: -webkit-linear-gradient(left, #73a9c2 0%, #6d1d05 100%);
+  background: linear-gradient(to right, #73a9c2 0%, #6d1d05 100%);
   text-align: center;
   padding: 2rem;
 `

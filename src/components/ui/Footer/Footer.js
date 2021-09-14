@@ -17,7 +17,6 @@ const Footer = () => {
             Contact
           </FooterHref>
           <FooterLink to="/about">About</FooterLink>
-          <FooterLink to="/">Sponsorships</FooterLink>
         </FooterLinkItems>
       </FooterLinksWrapper>
       <FooterLinksWrapper>
@@ -42,13 +41,14 @@ const FooterContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   color: #000;
   background: #fafafb;
+  height: 15vw;
 `
 const FooterDesc = styled.div`
   padding: 0 2rem;
 
   h1 {
     margin-bottom: 3rem;
-    color: #f26a2e;
+    color: #73a9c2;
   }
 
   @media screen and (max-width: 400px) {
